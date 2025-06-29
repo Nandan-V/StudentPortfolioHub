@@ -24,10 +24,11 @@ This is a full-stack TypeScript web application featuring a personal portfolio w
 - **Development**: Hot reload with tsx for TypeScript execution
 
 ### Data Storage
-- **Database**: PostgreSQL (configured via Neon serverless)
+- **Database**: PostgreSQL (configured via Neon serverless) - Active
 - **ORM**: Drizzle ORM with type-safe database interactions
 - **Schema**: Shared TypeScript schema definitions between client and server
 - **Migrations**: Database migrations managed through Drizzle Kit
+- **Storage Implementation**: DatabaseStorage class replacing MemStorage for persistent data
 
 ## Key Components
 
@@ -40,7 +41,7 @@ This is a full-stack TypeScript web application featuring a personal portfolio w
 ### Backend Components
 1. **Contact Form API**: POST /api/contact for form submissions
 2. **Contact Management**: GET /api/contact for retrieving submissions
-3. **In-Memory Storage**: Temporary storage implementation (MemStorage class)
+3. **Database Storage**: PostgreSQL database with DatabaseStorage class implementation
 4. **Request Logging**: Detailed API request/response logging middleware
 
 ### Shared Components
@@ -94,7 +95,9 @@ This is a full-stack TypeScript web application featuring a personal portfolio w
 - **REPL_ID**: Replit environment detection
 
 ## Changelog
-- June 29, 2025. Initial setup
+- June 29, 2025: Initial setup with portfolio website and contact form
+- June 29, 2025: Integrated PostgreSQL database with DatabaseStorage implementation
+- June 29, 2025: Simplified contact page layout removing grid structure
 
 ## User Preferences
 
