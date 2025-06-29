@@ -120,29 +120,34 @@ export default function Portfolio() {
                     <li className="flex items-start">
                       <span className="text-github-green mr-2">•</span>
                       Achieved{" "}
-                      <strong className="text-github-text">
+                      <span className="text-github-blue font-semibold">
                         120% of monthly sales targets
-                      </strong>{" "}
-                      through product knowledge and customer service
+                      </span>{" "}
+                      through in-depth product knowledge and excellent customer service
                     </li>
                     <li className="flex items-start">
                       <span className="text-github-green mr-2">•</span>
-                      Resolved complex account issues and improved customer
-                      satisfaction by{" "}
-                      <strong className="text-github-text">20%</strong>
+                      Resolved complex account issues; collaborated with carrier representatives to help with Telus, Rogers, Freedom and Bell to resolve customer issues while maintaining calm demeanor and addressing concerns under high-stress situations
                     </li>
                     <li className="flex items-start">
                       <span className="text-github-green mr-2">•</span>
-                      Led team of 15-20 associates during high-traffic periods
-                      like Black Friday
+                      Helped improve customer satisfaction by{" "}
+                      <span className="text-github-blue font-semibold">20%</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-github-green mr-2">•</span>
+                      Team Leadership During Peak Hours: Led and supported a team of 15-20 associates during high-traffic periods like Black Friday, setting an example by prioritizing customer needs while at the same time promoting team-oriented approach
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-github-green mr-2">•</span>
+                      Quickly Adapting to Different Needs: Leveraged my problem solving skills from the mobile department to assist customers with billing errors, device setups, and account issues, ensuring seamless solutions that increased the customers satisfaction and their trust with the store
                     </li>
                     <li className="flex items-start">
                       <span className="text-github-green mr-2">•</span>
                       Maintained{" "}
-                      <strong className="text-github-text">
-                        100% accuracy
-                      </strong>{" "}
-                      during transactions and billing processes
+                      <span className="text-github-blue font-semibold">
+                        100% accuracy during transactions
+                      </span>
                     </li>
                   </ul>
                 </div>
