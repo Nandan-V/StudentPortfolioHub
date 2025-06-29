@@ -69,91 +69,40 @@ export default function Contact() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="max-w-2xl mx-auto">
           {/* Contact Information */}
-          <div className="space-y-8">
-            <Card className="bg-github-card border-github-border">
-              <CardContent className="p-6">
-                <h2 className="text-2xl font-semibold text-github-text mb-6">
-                  Contact Information
-                </h2>
-                <div className="space-y-4">
-                  <div className="flex items-center">
-                    <Mail className="text-github-blue mr-4 w-5 h-5" />
-                    <div>
-                      <p className="text-github-text font-medium">Email</p>
-                      <a
-                        href="mailto:student@mtroyal.ca"
-                        className="text-github-text-secondary hover:text-github-blue transition-colors"
-                      >
-                        student@mtroyal.ca
-                      </a>
-                    </div>
-                  </div>
-                  <div className="flex items-center">
-                    <MapPin className="text-github-blue mr-4 w-5 h-5" />
-                    <div>
-                      <p className="text-github-text font-medium">Location</p>
-                      <p className="text-github-text-secondary">
-                        Calgary, Alberta, Canada
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-center">
-                    <Linkedin className="text-github-blue mr-4 w-5 h-5" />
-                    <div>
-                      <p className="text-github-text font-medium">LinkedIn</p>
-                      <a
-                        href="#"
-                        className="text-github-text-secondary hover:text-github-blue transition-colors"
-                      >
-                        linkedin.com/in/cis-student
-                      </a>
-                    </div>
-                  </div>
-                  <div className="flex items-center">
-                    <Github className="text-github-blue mr-4 w-5 h-5" />
-                    <div>
-                      <p className="text-github-text font-medium">GitHub</p>
-                      <a
-                        href="#"
-                        className="text-github-text-secondary hover:text-github-blue transition-colors"
-                      >
-                        github.com/cis-student
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-github-card border-github-border">
-              <CardContent className="p-6">
-                <h3 className="text-lg font-semibold text-github-text mb-4">
-                  Let's Connect
-                </h3>
-                <p className="text-github-text-secondary text-sm mb-4">
-                  I'm always open to discussing new opportunities, collaborative
-                  projects, or just chatting about technology and data science.
-                </p>
-                <div className="flex space-x-4">
-                  <Button className="bg-github-blue hover:bg-blue-600 text-white">
-                    <Linkedin className="w-4 h-4 mr-2" />
-                    LinkedIn
-                  </Button>
-                  <Button variant="outline" className="border-github-border text-github-text hover:border-github-blue">
-                    <Github className="w-4 h-4 mr-2" />
-                    GitHub
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
+          <div className="text-center mb-8">
+            <div className="flex justify-center space-x-8 mb-6">
+              <div className="flex items-center">
+                <Mail className="text-github-blue mr-2 w-5 h-5" />
+                <a
+                  href="mailto:student@mtroyal.ca"
+                  className="text-github-text-secondary hover:text-github-blue transition-colors"
+                >
+                  student@mtroyal.ca
+                </a>
+              </div>
+              <div className="flex items-center">
+                <MapPin className="text-github-blue mr-2 w-5 h-5" />
+                <span className="text-github-text-secondary">Calgary, AB</span>
+              </div>
+            </div>
+            <div className="flex justify-center space-x-4">
+              <Button className="bg-github-blue hover:bg-blue-600 text-white">
+                <Linkedin className="w-4 h-4 mr-2" />
+                LinkedIn
+              </Button>
+              <Button variant="outline" className="border-github-border text-github-text hover:border-github-blue">
+                <Github className="w-4 h-4 mr-2" />
+                GitHub
+              </Button>
+            </div>
           </div>
 
           {/* Contact Form */}
           <Card className="bg-github-card border-github-border">
-            <CardContent className="p-6">
-              <h2 className="text-2xl font-semibold text-github-text mb-6">
+            <CardContent className="p-8">
+              <h2 className="text-2xl font-semibold text-github-text mb-6 text-center">
                 Send a Message
               </h2>
               <Form {...form}>
