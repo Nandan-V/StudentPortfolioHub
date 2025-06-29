@@ -1,6 +1,4 @@
-import { users, contactForms, type User, type InsertUser, type ContactForm, type InsertContactForm } from "@shared/schema";
-import { db } from "./db";
-import { eq } from "drizzle-orm";
+import { type User, type InsertUser, type ContactForm, type InsertContactForm } from "@shared/schema";
 
 export interface IStorage {
   getUser(id: number): Promise<User | undefined>;
@@ -10,36 +8,50 @@ export interface IStorage {
   getAllContactForms(): Promise<ContactForm[]>;
 }
 
-export class DatabaseStorage implements IStorage {
+export class MemStorage implements IStorage {
+  private users: Map<number, User>;
+  private contactForms: Map<number, ContactForm>;
+  private currentUserId: number;
+  private currentContactFormId: number;
+
+  constructor() {
+    this.users = new Map();
+    this.contactForms = new Map();
+    this.currentUserId = 1;
+    this.currentContactFormId = 1;
+  }
+
   async getUser(id: number): Promise<User | undefined> {
-    const [user] = await db.select().from(users).where(eq(users.id, id));
-    return user || undefined;
+    return this.users.get(id);
   }
 
   async getUserByUsername(username: string): Promise<User | undefined> {
-    const [user] = await db.select().from(users).where(eq(users.username, username));
-    return user || undefined;
+    return Array.from(this.users.values()).find(
+      (user) => user.username === username,
+    );
   }
 
   async createUser(insertUser: InsertUser): Promise<User> {
-    const [user] = await db
-      .insert(users)
-      .values(insertUser)
-      .returning();
+    const id = this.currentUserId++;
+    const user: User = { ...insertUser, id };
+    this.users.set(id, user);
     return user;
   }
 
   async createContactForm(insertContactForm: InsertContactForm): Promise<ContactForm> {
-    const [contactForm] = await db
-      .insert(contactForms)
-      .values(insertContactForm)
-      .returning();
+    const id = this.currentContactFormId++;
+    const contactForm: ContactForm = { 
+      ...insertContactForm, 
+      id, 
+      createdAt: new Date() 
+    };
+    this.contactForms.set(id, contactForm);
     return contactForm;
   }
 
   async getAllContactForms(): Promise<ContactForm[]> {
-    return await db.select().from(contactForms);
+    return Array.from(this.contactForms.values());
   }
 }
 
-export const storage = new DatabaseStorage();
+export const storage = new MemStorage();

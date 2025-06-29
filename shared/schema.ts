@@ -1,33 +1,27 @@
-import { pgTable, text, serial, integer, boolean, timestamp } from "drizzle-orm/pg-core";
-import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
-export const users = pgTable("users", {
-  id: serial("id").primaryKey(),
-  username: text("username").notNull().unique(),
-  password: text("password").notNull(),
+// Simple type definitions without database tables
+export interface User {
+  id: number;
+  username: string;
+  password: string;
+}
+
+export interface ContactForm {
+  id: number;
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+  createdAt: Date;
+}
+
+export const insertUserSchema = z.object({
+  username: z.string(),
+  password: z.string(),
 });
 
-export const contactForms = pgTable("contact_forms", {
-  id: serial("id").primaryKey(),
-  name: text("name").notNull(),
-  email: text("email").notNull(),
-  subject: text("subject").notNull(),
-  message: text("message").notNull(),
-  createdAt: timestamp("created_at").defaultNow().notNull(),
-});
-
-export const insertUserSchema = createInsertSchema(users).pick({
-  username: true,
-  password: true,
-});
-
-export const contactFormSchema = createInsertSchema(contactForms).pick({
-  name: true,
-  email: true,
-  subject: true,
-  message: true,
-}).extend({
+export const contactFormSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
   email: z.string().email("Please enter a valid email address"),
   subject: z.string().min(1, "Please select a subject"),
@@ -35,6 +29,4 @@ export const contactFormSchema = createInsertSchema(contactForms).pick({
 });
 
 export type InsertUser = z.infer<typeof insertUserSchema>;
-export type User = typeof users.$inferSelect;
 export type InsertContactForm = z.infer<typeof contactFormSchema>;
-export type ContactForm = typeof contactForms.$inferSelect;
