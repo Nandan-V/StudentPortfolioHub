@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(220, 13%, 7%);
+  --foreground: hsl(210, 40%, 95%);
+  --muted: hsl(217, 11%, 15%);
+  --muted-foreground: hsl(215, 16%, 59%);
+  --popover: hsl(220, 13%, 7%);
+  --popover-foreground: hsl(210, 40%, 95%);
+  --card: hsl(220, 14%, 11%);
+  --card-foreground: hsl(210, 40%, 95%);
+  --border: hsl(217, 16%, 19%);
+  --input: hsl(217, 16%, 19%);
+  --primary: hsl(210, 90%, 68%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(217, 11%, 15%);
+  --secondary-foreground: hsl(210, 40%, 95%);
+  --accent: hsl(217, 11%, 15%);
+  --accent-foreground: hsl(210, 40%, 95%);
+  --destructive: hsl(0, 85%, 60%);
+  --destructive-foreground: hsl(60, 9%, 98%);
+  --ring: hsl(210, 90%, 68%);
+  --radius: 0.5rem;
+  
+  /* Custom GitHub-inspired colors */
+  --github-dark: hsl(220, 13%, 7%);
+  --github-card: hsl(220, 14%, 11%);
+  --github-border: hsl(217, 16%, 19%);
+  --github-text: hsl(210, 40%, 95%);
+  --github-text-secondary: hsl(215, 16%, 59%);
+  --github-blue: hsl(210, 90%, 68%);
+  --github-green: hsl(120, 75%, 55%);
+}
+
+.dark {
+  --background: hsl(220, 13%, 7%);
+  --foreground: hsl(210, 40%, 95%);
+  --muted: hsl(217, 11%, 15%);
+  --muted-foreground: hsl(215, 16%, 59%);
+  --popover: hsl(220, 13%, 7%);
+  --popover-foreground: hsl(210, 40%, 95%);
+  --card: hsl(220, 14%, 11%);
+  --card-foreground: hsl(210, 40%, 95%);
+  --border: hsl(217, 16%, 19%);
+  --input: hsl(217, 16%, 19%);
+  --primary: hsl(210, 90%, 68%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(217, 11%, 15%);
+  --secondary-foreground: hsl(210, 40%, 95%);
+  --accent: hsl(217, 11%, 15%);
+  --accent-foreground: hsl(210, 40%, 95%);
+  --destructive: hsl(0, 62%, 31%);
+  --destructive-foreground: hsl(210, 40%, 95%);
+  --ring: hsl(210, 90%, 68%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: var(--github-dark);
+    color: var(--github-text);
+  }
+}
+
+@layer utilities {
+  .tech-stack {
+    font-family: 'JetBrains Mono', Monaco, 'Cascadia Code', 'Roboto Mono', monospace;
+  }
+  
+  .gradient-border {
+    background: linear-gradient(45deg, var(--github-blue), var(--github-green));
+    padding: 2px;
+    border-radius: 50%;
+  }
+  
+  .gradient-border img {
+    border-radius: 50%;
+  }
+  
+  .bg-github-dark {
+    background-color: var(--github-dark);
+  }
+  
+  .bg-github-card {
+    background-color: var(--github-card);
+  }
+  
+  .border-github-border {
+    border-color: var(--github-border);
+  }
+  
+  .text-github-text {
+    color: var(--github-text);
+  }
+  
+  .text-github-text-secondary {
+    color: var(--github-text-secondary);
+  }
+  
+  .text-github-blue {
+    color: var(--github-blue);
+  }
+  
+  .text-github-green {
+    color: var(--github-green);
+  }
+  
+  .bg-github-blue {
+    background-color: var(--github-blue);
+  }
+  
+  .hover\:border-github-blue:hover {
+    border-color: var(--github-blue);
+  }
+  
+  .hover\:text-github-blue:hover {
+    color: var(--github-blue);
+  }
+  
+  .focus\:border-github-blue:focus {
+    border-color: var(--github-blue);
+  }
+}
